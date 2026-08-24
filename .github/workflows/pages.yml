@@ -1,7 +1,7 @@
 name: Publikacja strony
 
-# Każdy push na main przebudowuje stronę. Pierwsze uruchomienie samo włącza
-# GitHub Pages, więc nie trzeba nic klikać w ustawieniach repozytorium.
+# Każdy push na main przebudowuje stronę.
+# Wymaga jednorazowego ustawienia w repozytorium: Settings -> Pages -> Source: GitHub Actions.
 on:
   push:
     branches: [main]
@@ -25,10 +25,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Włącz i skonfiguruj Pages
+      - name: Skonfiguruj Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Spakuj stronę
         uses: actions/upload-pages-artifact@v3
