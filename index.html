@@ -292,23 +292,6 @@ section+section{border-top:1px solid var(--line)}
 .gal-item img{width:100%;height:auto;display:block;transition:transform .55s ease}
 .gal-item:hover,.gal-item:focus-visible{border-color:var(--amber)}
 .gal-item:hover img,.gal-item:focus-visible img{transform:scale(1.035)}
-.gal-item .cap{
-  position:absolute;left:0;right:0;bottom:0;padding:38px 14px 13px;
-  font-family:var(--mono);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--white);line-height:1.55;
-  background:linear-gradient(to top,rgba(8,8,9,.94),rgba(8,8,9,.6) 55%,rgba(8,8,9,0));
-  opacity:0;transform:translateY(8px);transition:opacity .28s ease,transform .28s ease;
-}
-.gal-item:hover .cap,.gal-item:focus-visible .cap{opacity:1;transform:none}
-/* na ekranach dotykowych nie ma najechania — podpis schodzi pod zdjęcie,
-   żeby nie zakrywał kadru na małych kaflach */
-@media (hover:none){
-  .gal-item .cap{
-    position:static;display:block;opacity:1;transform:none;background:none;
-    border-top:1px solid var(--line);color:var(--grey);
-    padding:9px 11px 10px;font-size:.56rem;letter-spacing:.06em;
-  }
-}
 
 /* pusty kafel — miejsce na zdjęcie */
 .gal-empty{aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:20px;
@@ -658,7 +641,6 @@ section+section{border-top:1px solid var(--line)}
       <a class="gal-item" href="zdjecia/17.jpg" data-caption="Kuchnia — Jeziorany">
         <img src="zdjecia/17-mini.jpg" alt="Kuchnia — Jeziorany — realizacja K&B Meble Na Wymiar"
              width="900" height="405" loading="lazy" decoding="async">
-        <span class="cap">Kuchnia — Jeziorany</span>
       </a>
 
       width i height to wymiary miniatury — trzymają układ, zanim zdjęcie się wczyta.
@@ -669,82 +651,66 @@ section+section{border-top:1px solid var(--line)}
       <a class="gal-item" href="zdjecia/01.jpg" data-caption="Łazienka — zabudowa stelaża, półki dębowe i prysznic walk-in">
         <img src="zdjecia/01-mini.jpg" alt="Łazienka — zabudowa stelaża, półki dębowe i prysznic walk-in — realizacja K&amp;B Meble Na Wymiar"
              width="405" height="900" loading="lazy" decoding="async">
-        <span class="cap">Łazienka z prysznicem walk-in</span>
       </a>
       <a class="gal-item" href="zdjecia/02.jpg" data-caption="Komoda pod skosem — fronty oliwkowe, korpus dębowy">
         <img src="zdjecia/02-mini.jpg" alt="Komoda pod skosem — fronty oliwkowe, korpus dębowy — realizacja K&amp;B Meble Na Wymiar"
              width="900" height="405" loading="lazy" decoding="async">
-        <span class="cap">Komoda pod skosem</span>
       </a>
       <a class="gal-item" href="zdjecia/03.jpg" data-caption="Szafa przy schodach kręconych — zabudowa do sufitu">
         <img src="zdjecia/03-mini.jpg" alt="Szafa przy schodach kręconych — zabudowa do sufitu — realizacja K&amp;B Meble Na Wymiar"
              width="405" height="900" loading="lazy" decoding="async">
-        <span class="cap">Szafa przy schodach</span>
       </a>
       <a class="gal-item" href="zdjecia/06.jpg" data-caption="Kuchnia w bieli i orzechu — słupek z piekarnikiem">
         <img src="zdjecia/06-mini.jpg" alt="Kuchnia w bieli i orzechu — słupek z piekarnikiem — realizacja K&amp;B Meble Na Wymiar"
              width="900" height="405" loading="lazy" decoding="async">
-        <span class="cap">Kuchnia w bieli i orzechu</span>
       </a>
       <a class="gal-item" href="zdjecia/04.jpg" data-caption="Przedpokój — szafa przesuwna z lustrem i panel z wieszakami">
         <img src="zdjecia/04-mini.jpg" alt="Przedpokój — szafa przesuwna z lustrem i panel z wieszakami — realizacja K&amp;B Meble Na Wymiar"
              width="405" height="900" loading="lazy" decoding="async">
-        <span class="cap">Przedpokój z szafą przesuwną</span>
       </a>
       <a class="gal-item" href="zdjecia/07.jpg" data-caption="Kuchnia z barkiem — witryny z podświetleniem i złote uchwyty">
         <img src="zdjecia/07-mini.jpg" alt="Kuchnia z barkiem — witryny z podświetleniem i złote uchwyty — realizacja K&amp;B Meble Na Wymiar"
              width="900" height="405" loading="lazy" decoding="async">
-        <span class="cap">Kuchnia z barkiem</span>
       </a>
       <a class="gal-item" href="zdjecia/05.jpg" data-caption="Pralnia — regał na wymiar z miejscem na pralkę i suszarkę">
         <img src="zdjecia/05-mini.jpg" alt="Pralnia — regał na wymiar z miejscem na pralkę i suszarkę — realizacja K&amp;B Meble Na Wymiar"
              width="405" height="900" loading="lazy" decoding="async">
-        <span class="cap">Pralnia — regał na wymiar</span>
       </a>
       <a class="gal-item" href="zdjecia/08.jpg" data-caption="Szafka RTV na ścianie ze starego drewna">
         <img src="zdjecia/08-mini.jpg" alt="Szafka RTV na ścianie ze starego drewna — realizacja K&amp;B Meble Na Wymiar"
              width="900" height="406" loading="lazy" decoding="async">
-        <span class="cap">Szafka RTV</span>
       </a>
       <a class="gal-item" href="zdjecia/09.jpg" data-caption="Toaleta — zabudowa nad WC i półka dębowa">
         <img src="zdjecia/09-mini.jpg" alt="Toaleta — zabudowa nad WC i półka dębowa — realizacja K&amp;B Meble Na Wymiar"
              width="405" height="900" loading="lazy" decoding="async">
-        <span class="cap">Zabudowa nad WC</span>
       </a>
       <a class="gal-item" href="zdjecia/10.jpg" data-caption="Toaleta — szafka podumywalkowa z blatem dębowym">
         <img src="zdjecia/10-mini.jpg" alt="Toaleta — szafka podumywalkowa z blatem dębowym — realizacja K&amp;B Meble Na Wymiar"
              width="900" height="405" loading="lazy" decoding="async">
-        <span class="cap">Szafka podumywalkowa</span>
       </a>
       <a class="gal-item" href="zdjecia/11.jpg" data-caption="Aneks kuchenny w bieli z blatem dębowym">
         <img src="zdjecia/11-mini.jpg" alt="Aneks kuchenny w bieli z blatem dębowym — realizacja K&amp;B Meble Na Wymiar"
              width="405" height="900" loading="lazy" decoding="async">
-        <span class="cap">Aneks kuchenny w bieli</span>
       </a>
       <a class="gal-item" href="zdjecia/14.jpg" data-caption="Kuchnia w granacie z kwiatowym fartuchem">
         <img src="zdjecia/14-mini.jpg" alt="Kuchnia w granacie z kwiatowym fartuchem — realizacja K&amp;B Meble Na Wymiar"
              width="900" height="405" loading="lazy" decoding="async">
-        <span class="cap">Kuchnia w granacie</span>
       </a>
       <a class="gal-item" href="zdjecia/12.jpg" data-caption="Sufit z drewnianych lameli nad klatką schodową">
         <img src="zdjecia/12-mini.jpg" alt="Sufit z drewnianych lameli nad klatką schodową — realizacja K&amp;B Meble Na Wymiar"
              width="406" height="900" loading="lazy" decoding="async">
-        <span class="cap">Sufit z lameli</span>
       </a>
       <a class="gal-item" href="zdjecia/16.jpg" data-caption="Komoda w sypialni na poddaszu — fronty oliwkowe">
         <img src="zdjecia/16-mini.jpg" alt="Komoda w sypialni na poddaszu — fronty oliwkowe — realizacja K&amp;B Meble Na Wymiar"
              width="900" height="405" loading="lazy" decoding="async">
-        <span class="cap">Komoda na poddaszu</span>
       </a>
       <a class="gal-item" href="zdjecia/13.jpg" data-caption="Sufit drewniany — detal zaokrąglonego naroża">
         <img src="zdjecia/13-mini.jpg" alt="Sufit drewniany — detal zaokrąglonego naroża — realizacja K&amp;B Meble Na Wymiar"
              width="406" height="900" loading="lazy" decoding="async">
-        <span class="cap">Sufit drewniany — detal</span>
       </a>
       <a class="gal-item" href="zdjecia/15.jpg" data-caption="Aneks kuchenny — granat i cegła">
         <img src="zdjecia/15-mini.jpg" alt="Aneks kuchenny — granat i cegła — realizacja K&amp;B Meble Na Wymiar"
              width="406" height="900" loading="lazy" decoding="async">
-        <span class="cap">Aneks — granat i cegła</span>
       </a>
     </div>
 

@@ -30,9 +30,8 @@ zamiast być przycinane do kwadratu. Przy szerokim oknie idą w 4 kolumnach, pot
 telefonie 2. Kolejność w kodzie przeplata kadry pionowe z poziomymi, żeby kolumny
 kończyły się na podobnej wysokości — dokładając zdjęcia warto trzymać ten rytm.
 
-Podpis pojawia się po najechaniu myszą, a na ekranie dotykowym stoi na stałe pod
-zdjęciem. Kliknięcie otwiera powiększenie ze strzałkami, obsługą klawiatury (← → Esc)
-i licznikiem „3 / 16".
+Kafle są bez podpisów — sama fotografia. Kliknięcie otwiera powiększenie ze strzałkami,
+obsługą klawiatury (← → Esc), licznikiem „3 / 16" i opisem realizacji pod zdjęciem.
 
 ### Dodanie kolejnego zdjęcia
 
@@ -45,13 +44,12 @@ i licznikiem „3 / 16".
 <a class="gal-item" href="zdjecia/17.jpg" data-caption="Kuchnia w Jezioranach — fronty lakierowane">
   <img src="zdjecia/17-mini.jpg" alt="Kuchnia w Jezioranach — realizacja K&B Meble Na Wymiar"
        width="900" height="405" loading="lazy" decoding="async">
-  <span class="cap">Kuchnia w Jezioranach</span>
 </a>
 ```
 
 - `width` i `height` to wymiary **miniatury** — trzymają układ, zanim zdjęcie się wczyta.
-- `data-caption` i `alt` biorą pełny opis (powiększenie, wyszukiwarka, czytniki ekranu),
-  `<span class="cap">` krótką etykietę na kafel — dwa, trzy słowa.
+- `data-caption` to podpis widoczny **w powiększeniu**, `alt` opis dla wyszukiwarki
+  i czytników ekranu. Na kaflach w siatce nie ma żadnych podpisów — same zdjęcia.
 - Powiększenie podłącza się samo: skrypt zbiera wszystkie `.gal-item` z atrybutem `href`.
 - Bez JavaScriptu zdjęcie po prostu otworzy się w nowej karcie.
 
