@@ -1,0 +1,210 @@
+[
+ {
+  "nr": "01",
+  "opis": "Łazienka — zabudowa stelaża, półki dębowe i prysznic walk-in",
+  "duze": [
+   811,
+   1800
+  ],
+  "mini": [
+   405,
+   900
+  ],
+  "krotki": "Łazienka z prysznicem walk-in"
+ },
+ {
+  "nr": "02",
+  "opis": "Komoda pod skosem — fronty oliwkowe, korpus dębowy",
+  "duze": [
+   1800,
+   811
+  ],
+  "mini": [
+   900,
+   405
+  ],
+  "krotki": "Komoda pod skosem"
+ },
+ {
+  "nr": "03",
+  "opis": "Szafa przy schodach kręconych — zabudowa do sufitu",
+  "duze": [
+   811,
+   1800
+  ],
+  "mini": [
+   405,
+   900
+  ],
+  "krotki": "Szafa przy schodach"
+ },
+ {
+  "nr": "04",
+  "opis": "Przedpokój — szafa przesuwna z lustrem i panel z wieszakami",
+  "duze": [
+   811,
+   1800
+  ],
+  "mini": [
+   405,
+   900
+  ],
+  "krotki": "Przedpokój z szafą przesuwną"
+ },
+ {
+  "nr": "05",
+  "opis": "Pralnia — regał na wymiar z miejscem na pralkę i suszarkę",
+  "duze": [
+   811,
+   1800
+  ],
+  "mini": [
+   405,
+   900
+  ],
+  "krotki": "Pralnia — regał na wymiar"
+ },
+ {
+  "nr": "06",
+  "opis": "Kuchnia w bieli i orzechu — słupek z piekarnikiem",
+  "duze": [
+   1800,
+   811
+  ],
+  "mini": [
+   900,
+   405
+  ],
+  "krotki": "Kuchnia w bieli i orzechu"
+ },
+ {
+  "nr": "07",
+  "opis": "Kuchnia z barkiem — witryny z podświetleniem i złote uchwyty",
+  "duze": [
+   1800,
+   811
+  ],
+  "mini": [
+   900,
+   405
+  ],
+  "krotki": "Kuchnia z barkiem"
+ },
+ {
+  "nr": "08",
+  "opis": "Szafka RTV na ścianie ze starego drewna",
+  "duze": [
+   1800,
+   812
+  ],
+  "mini": [
+   900,
+   406
+  ],
+  "krotki": "Szafka RTV"
+ },
+ {
+  "nr": "09",
+  "opis": "Toaleta — zabudowa nad WC i półka dębowa",
+  "duze": [
+   811,
+   1800
+  ],
+  "mini": [
+   405,
+   900
+  ],
+  "krotki": "Zabudowa nad WC"
+ },
+ {
+  "nr": "10",
+  "opis": "Toaleta — szafka podumywalkowa z blatem dębowym",
+  "duze": [
+   1800,
+   811
+  ],
+  "mini": [
+   900,
+   405
+  ],
+  "krotki": "Szafka podumywalkowa"
+ },
+ {
+  "nr": "11",
+  "opis": "Aneks kuchenny w bieli z blatem dębowym",
+  "duze": [
+   811,
+   1800
+  ],
+  "mini": [
+   405,
+   900
+  ],
+  "krotki": "Aneks kuchenny w bieli"
+ },
+ {
+  "nr": "12",
+  "opis": "Sufit z drewnianych lameli nad klatką schodową",
+  "duze": [
+   812,
+   1800
+  ],
+  "mini": [
+   406,
+   900
+  ],
+  "krotki": "Sufit z lameli"
+ },
+ {
+  "nr": "13",
+  "opis": "Sufit drewniany — detal zaokrąglonego naroża",
+  "duze": [
+   812,
+   1800
+  ],
+  "mini": [
+   406,
+   900
+  ],
+  "krotki": "Sufit drewniany — detal"
+ },
+ {
+  "nr": "14",
+  "opis": "Kuchnia w granacie z kwiatowym fartuchem",
+  "duze": [
+   1800,
+   811
+  ],
+  "mini": [
+   900,
+   405
+  ],
+  "krotki": "Kuchnia w granacie"
+ },
+ {
+  "nr": "15",
+  "opis": "Aneks kuchenny — granat i cegła",
+  "duze": [
+   812,
+   1800
+  ],
+  "mini": [
+   406,
+   900
+  ],
+  "krotki": "Aneks — granat i cegła"
+ },
+ {
+  "nr": "16",
+  "opis": "Komoda w sypialni na poddaszu — fronty oliwkowe",
+  "duze": [
+   1800,
+   811
+  ],
+  "mini": [
+   900,
+   405
+  ],
+  "krotki": "Komoda na poddaszu"
+ }
+]
