@@ -4,14 +4,17 @@ Strona wizytówka pracowni: **`index.html`** plus katalog **`zdjecia/`**. Style 
 siedzą w pliku HTML, nie ma nic do budowania ani instalowania — wystarczy wrzucić
 całość na hosting albo do repozytorium z GitHub Pages.
 
-Styl zdjęty z grafiki firmowej: grafit `#0E0E0F`, bursztyn `#B87423`, biel `#F5F5F5`,
-rysunek techniczny zamiast zdjęcia w tle. Kroje: **Jost** (nagłówki, interfejs) i
-**Space Mono** (opisy techniczne) — oba z Google Fonts.
+Styl zdjęty z animowanego banera: czerń `#08080A`, złoto `#F5A800`, rdzeń poświaty
+`#FCD800`, biel `#F5F5F5`. Kroje: **Jost** (nagłówki, interfejs) i **Space Mono**
+(opisy techniczne) — oba z Google Fonts.
 
 ## Co jest w katalogu
 
 ```
 index.html        cała strona
+baner.mp4         animowany baner w nagłówku strony
+baner.jpg         plansza banera — widoczna, zanim film ruszy
+baner.gif         ta sama animacja dla przeglądarek bez obsługi wideo
 og-image.jpg      miniatura do podglądu linku na Facebooku
 zdjecia/          16 realizacji, każda w dwóch wersjach
   01.jpg          dłuższy bok 1800 px — otwiera się po kliknięciu
@@ -22,6 +25,28 @@ zdjecia/          16 realizacji, każda w dwóch wersjach
 ## Uruchomienie
 
 Otwórz `index.html` w przeglądarce. Tyle.
+
+## Baner i pulsowanie światła
+
+Nagłówek strony to animowany baner odtwarzany w pętli: `baner.mp4`, bez dźwięku,
+z planszą `baner.jpg` na czas wczytywania i `baner.gif` jako zapasem dla przeglądarek
+bez obsługi wideo. Krawędzie są wygaszone w tło, więc grafika świeci, zamiast stać
+w ramce. Szerokość ograniczają trzy wartości naraz — `min(1040px, 100%, 89vh)` —
+dzięki czemu proporcja 16:9 trzyma się na każdym ekranie, a baner nigdy nie zasłania
+nagłówka ani przycisków.
+
+Podmiana banera: nadpisz trzy pliki tą samą nazwą. Planszę wygodnie zrobić
+z najjaśniejszej klatki animacji.
+
+Światłem pulsuje cała strona — znak firmowy, nadpisy sekcji, główne przyciski, narożniki
+tabliczek, ikony procesu i świetlny szew na styku sekcji. Każdy element ma inny czas
+cyklu (od 4,2 do 7,5 s), żeby nic nie migotało jednym rytmem. Wszystko siedzi w czterech
+klatkach `@keyframes puls-*` na początku arkusza stylów — zmiana tempa albo siły poświaty
+to jedno miejsce w kodzie.
+
+Kto ma w systemie włączone ograniczenie ruchu (`prefers-reduced-motion`), dostaje stronę
+bez pulsowania i z zatrzymanym banerem, ale poświata zostaje — strona dalej świeci,
+tylko nieruchomo.
 
 ## Galeria
 
