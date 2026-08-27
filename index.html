@@ -21,14 +21,14 @@
 <meta property="og:url" content="https://krzysztofwolniarczyk-source.github.io/k-b-strona-internetowa/">
 <meta property="og:image" content="https://krzysztofwolniarczyk-source.github.io/k-b-strona-internetowa/og-image.jpg">
 <meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="800">
+<meta property="og:image:height" content="676">
 <meta property="og:image:alt" content="K&amp;B Meble Na Wymiar">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="K&amp;B Meble Na Wymiar — stolarnia na Warmii">
 <meta name="twitter:description" content="Kuchnie, szafy, garderoby i zabudowy na wymiar. Jeziorany i cała Warmia. Tel. 888 460 721, 510 864 253.">
 <meta name="twitter:image" content="https://krzysztofwolniarczyk-source.github.io/k-b-strona-internetowa/og-image.jpg">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230E0E0F'/%3E%3Crect x='6' y='6' width='52' height='52' fill='none' stroke='%23B87423' stroke-width='3'/%3E%3Ctext x='32' y='42' font-family='Helvetica,Arial,sans-serif' font-size='26' font-weight='700' fill='%23F5F5F5' text-anchor='middle'%3EK%3Ctspan fill='%23B87423'%3E%26amp;%3C/tspan%3EB%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230E0E0F'/%3E%3Crect x='6' y='6' width='52' height='52' fill='none' stroke='%23F5A800' stroke-width='3'/%3E%3Ctext x='32' y='42' font-family='Helvetica,Arial,sans-serif' font-size='26' font-weight='700' fill='%23F5F5F5' text-anchor='middle'%3EK%3Ctspan fill='%23F5A800'%3E%26amp;%3C/tspan%3EB%3C/text%3E%3C/svg%3E">
 
 <script>document.documentElement.className += " js";</script>
 
@@ -39,19 +39,21 @@
 <style>
 /* ==========================================================================
    K&B MEBLE NA WYMIAR — arkusz stylów
-   Paleta zdjęta z grafiki firmowej: grafit #0E0E0F, bursztyn #B87423, biel #F5F5F5.
+   Paleta zdjęta z animowanego banera: czerń #08080A, złoto #F5A800, rdzeń poświaty #FCD800.
    ========================================================================== */
 
 :root{
-  --bg:#0E0E0F;
-  --bg-2:#141416;
-  --bg-3:#1A1B1D;
-  --line:#26262A;
-  --line-2:#33343A;
+  --bg:#08080A;             /* czerń taka jak tło banera                   */
+  --bg-2:#101014;
+  --bg-3:#17171C;
+  --line:#232329;
+  --line-2:#33343B;
 
-  --amber:#B87423;          /* linie, ramki, wypełnienia przycisków        */
-  --amber-lt:#D9993F;       /* tekst akcentowy — kontrast 6,9:1 na grafcie */
-  --amber-dim:rgba(184,116,35,.16);
+  --amber:#F5A800;          /* złoto z banera — ramki i wypełnienia        */
+  --amber-lt:#FBC531;       /* tekst akcentowy — kontrast 12,3:1 na czerni */
+  --amber-dim:rgba(245,168,0,.16);
+  --glow:252,216,0;         /* rdzeń poświaty, jako składowe RGB           */
+  --glow-2:245,168,0;
 
   --white:#F5F5F5;
   --grey:#9A9A9A;
@@ -67,10 +69,33 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
+/* ---------- pulsowanie światła ----------
+   Powolne i o małej amplitudzie — ma oddychać, a nie migotać. Każdy element
+   dostaje inny czas cyklu, żeby strona nie pulsowała jednym rytmem.        */
+@keyframes puls-jasnosc{ 0%,100%{opacity:.45} 50%{opacity:1} }
+@keyframes puls-poswiata{
+  0%,100%{ box-shadow:0 0 12px rgba(var(--glow-2),.16) }
+  50%    { box-shadow:0 0 28px rgba(var(--glow),.42) }
+}
+@keyframes puls-tekst{
+  0%,100%{ text-shadow:0 0 8px rgba(var(--glow-2),.20) }
+  50%    { text-shadow:0 0 18px rgba(var(--glow),.55) }
+}
+@keyframes puls-ramka{
+  0%,100%{ box-shadow:0 0 30px rgba(var(--glow-2),.10), inset 0 0 30px rgba(var(--glow-2),.06) }
+  50%    { box-shadow:0 0 70px rgba(var(--glow),.26),  inset 0 0 44px rgba(var(--glow),.12) }
+}
+
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  *,*::before,*::after{animation:none!important;transition-duration:.001ms!important}
+  /* bez pulsowania, ale poświata zostaje — strona ma dalej świecić */
+  .brand-mark,.btn-primary{box-shadow:0 0 20px rgba(245,168,0,.28)}
+  .label{text-shadow:0 0 12px rgba(245,168,0,.35)}
+  .hero-media{box-shadow:0 0 48px rgba(245,168,0,.18)}
+  .hero-glow,section+section::before,.ticks::before,.ticks::after,
+  .ticks>.tick-tr,.ticks>.tick-bl,.proces svg{opacity:.8}
 }
 
 body{
@@ -110,6 +135,7 @@ ul{list-style:none}
 .label{
   display:block;font-family:var(--mono);font-size:.68rem;font-weight:400;
   letter-spacing:.28em;text-transform:uppercase;color:var(--amber-lt);
+  animation:puls-tekst 5.4s ease-in-out infinite;
 }
 
 .dim{display:flex;align-items:center;gap:12px;margin:14px 0 26px}
@@ -129,7 +155,7 @@ ul{list-style:none}
 .ticks::before,.ticks::after,
 .ticks>.tick-tr,.ticks>.tick-bl{
   content:"";position:absolute;width:14px;height:14px;border:1px solid var(--amber);
-  pointer-events:none;opacity:.75;
+  pointer-events:none;opacity:.75;animation:puls-jasnosc 5.8s ease-in-out infinite;
 }
 .ticks::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
 .ticks::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
@@ -138,6 +164,13 @@ ul{list-style:none}
 
 section{padding:var(--gap) 0;position:relative}
 section+section{border-top:1px solid var(--line)}
+/* świetlny szew na styku sekcji — ten sam oddech, inny rytm */
+section+section::before{
+  content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  width:min(620px,72%);height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--amber),transparent);
+  animation:puls-jasnosc 6.5s ease-in-out infinite;
+}
 
 /* ---------- przyciski ---------- */
 
@@ -147,7 +180,9 @@ section+section{border-top:1px solid var(--line)}
   text-transform:uppercase;border:1px solid transparent;transition:.22s ease;
   white-space:nowrap;
 }
-.btn-primary{background:var(--amber);color:#120C03;border-color:var(--amber)}
+.btn-primary{background:var(--amber);color:#140D00;border-color:var(--amber);
+  animation:puls-poswiata 4.2s ease-in-out infinite}
+.btn-primary:hover{box-shadow:0 0 34px rgba(var(--glow),.5);animation-play-state:paused}
 .btn-primary:hover{background:var(--amber-lt);border-color:var(--amber-lt)}
 .btn-ghost{border-color:var(--line-2);color:var(--white)}
 .btn-ghost:hover{border-color:var(--amber);color:var(--amber-lt)}
@@ -156,7 +191,7 @@ section+section{border-top:1px solid var(--line)}
 /* ---------- pasek górny ---------- */
 
 .topbar{
-  background:#0A0A0B;border-bottom:1px solid var(--line);
+  background:#050507;border-bottom:1px solid var(--line);
   font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
   color:var(--grey-2);
 }
@@ -170,7 +205,7 @@ section+section{border-top:1px solid var(--line)}
 
 /* ---------- nagłówek ---------- */
 
-.site-head{position:sticky;top:0;z-index:90;background:rgba(14,14,15,.92);
+.site-head{position:sticky;top:0;z-index:90;background:rgba(8,8,10,.92);
   backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:border-color .3s}
 .site-head.stuck{border-bottom-color:var(--line-2);box-shadow:0 12px 34px rgba(0,0,0,.5)}
 .site-head .wrap{display:flex;align-items:center;gap:20px;padding-top:14px;padding-bottom:14px}
@@ -180,7 +215,9 @@ section+section{border-top:1px solid var(--line)}
   width:46px;height:46px;border:2px solid var(--amber);flex:none;display:block;
   font-weight:700;font-size:.86rem;letter-spacing:.02em;color:var(--white);
   line-height:42px;text-align:center;white-space:nowrap;
+  animation:puls-poswiata 4.6s ease-in-out infinite;
 }
+.brand-mark i{text-shadow:0 0 12px rgba(var(--glow),.7)}
 .brand-mark i{font-style:normal;color:var(--amber-lt)}
 .brand-txt{display:flex;flex-direction:column;line-height:1.05}
 .brand-txt b{font-size:1.02rem;font-weight:700;letter-spacing:.2em;color:var(--white)}
@@ -216,32 +253,36 @@ section+section{border-top:1px solid var(--line)}
 /* ---------- hero ---------- */
 
 .hero{
-  position:relative;min-height:min(92vh,860px);display:flex;align-items:center;
-  padding:clamp(72px,11vw,132px) 0 clamp(64px,9vw,104px);overflow:hidden;border-top:0;
+  position:relative;overflow:hidden;border-top:0;
+  padding:clamp(28px,4vw,48px) 0 clamp(52px,8vw,88px);
 }
-.hero-art{position:absolute;inset:0;pointer-events:none;z-index:0}
-.hero-art svg{position:absolute;right:-4%;bottom:0;width:min(1240px,108%);height:100%;
-  opacity:.72}
-.hero::after{
-  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:
-    radial-gradient(120% 90% at 12% 42%,rgba(14,14,15,.97) 0%,rgba(14,14,15,.86) 34%,rgba(14,14,15,0) 68%),
-    linear-gradient(180deg,rgba(14,14,15,.55) 0%,rgba(14,14,15,0) 26%,rgba(14,14,15,.9) 100%);
+/* poświata rozlana za banerem — najwolniejszy oddech na stronie */
+.hero-glow{
+  position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(58% 46% at 50% 32%,rgba(var(--glow-2),.16),transparent 72%);
+  animation:puls-jasnosc 7.5s ease-in-out infinite;
 }
 .hero .wrap{position:relative;z-index:2}
-.hero-inner{max-width:660px}
 
-.hero h1{margin:20px 0 0;font-size:clamp(2.6rem,7.2vw,5.1rem);font-weight:700;
-  letter-spacing:.02em;text-transform:uppercase;line-height:.98}
-.hero h1 .main{display:block}
-.hero h1 .sub{
-  display:flex;align-items:center;gap:16px;margin-top:16px;
-  font-family:var(--sans);font-size:clamp(.95rem,2.1vw,1.35rem);font-weight:400;
-  letter-spacing:.34em;text-transform:uppercase;color:var(--grey);
+.hero-media{
+  position:relative;margin:0 auto clamp(24px,4vw,42px);
+  width:min(1040px,100%,89vh);height:auto;
+  aspect-ratio:16/9;background:#000;overflow:hidden;
+  animation:puls-ramka 6.2s ease-in-out infinite;
 }
-.hero .sub::before,.hero .sub::after{content:"";height:1px;width:clamp(18px,4vw,42px);background:var(--amber);flex:none}
-.hero .sub::after{flex:1;max-width:180px}
-.hero p.lead{margin-top:26px;max-width:520px;font-size:1.04rem;line-height:1.8}
+.hero-media video,.hero-media img{width:100%;height:100%;object-fit:contain;display:block}
+/* krawędzie wtapiają się w tło strony — baner ma świecić, a nie stać w ramce */
+.hero-media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  box-shadow:inset 0 0 54px 20px var(--bg);
+}
+
+.hero-inner{max-width:660px}
+.hero h1{
+  margin:14px 0 0;font-size:clamp(1.55rem,3.2vw,2.35rem);font-weight:600;
+  letter-spacing:.005em;line-height:1.14;text-wrap:balance;
+}
+.hero p.lead{margin-top:22px;max-width:520px;font-size:1.04rem;line-height:1.8}
 
 .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
 .tags li{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;
@@ -256,12 +297,14 @@ section+section{border-top:1px solid var(--line)}
 
 /* ---------- proces (pasek ikon jak w grafice) ---------- */
 
-.proces{padding:0;border-top:1px solid var(--line);background:#0B0B0C}
+.proces{padding:0;border-top:1px solid var(--line);background:#0B0B0E}
 .proces ul{display:grid;grid-template-columns:repeat(4,1fr)}
 .proces li{padding:clamp(28px,4vw,42px) 16px;text-align:center;border-left:1px solid var(--line)}
 .proces li:first-child{border-left:0}
 .proces svg{width:36px;height:36px;margin:0 auto 16px;stroke:var(--amber);stroke-width:1.2;fill:none;
-  stroke-linecap:round;stroke-linejoin:round;display:block}
+  stroke-linecap:round;stroke-linejoin:round;display:block;
+  filter:drop-shadow(0 0 6px rgba(var(--glow-2),.45));
+  animation:puls-jasnosc 6.8s ease-in-out infinite}
 .proces b{display:block;font-family:var(--sans);font-size:.78rem;font-weight:500;letter-spacing:.2em;
   text-transform:uppercase;color:var(--white)}
 .proces small{display:block;margin-top:8px;font-size:.78rem;line-height:1.6;color:var(--grey-2)}
@@ -290,7 +333,7 @@ section+section{border-top:1px solid var(--line)}
   background:var(--bg-2);border:1px solid var(--line);overflow:hidden;transition:border-color .25s;
 }
 .gal-item img{width:100%;height:auto;display:block;transition:transform .55s ease}
-.gal-item:hover,.gal-item:focus-visible{border-color:var(--amber)}
+.gal-item:hover,.gal-item:focus-visible{border-color:var(--amber);box-shadow:0 0 26px rgba(var(--glow-2),.28)}
 .gal-item:hover img,.gal-item:focus-visible img{transform:scale(1.035)}
 
 /* pusty kafel — miejsce na zdjęcie */
@@ -366,7 +409,7 @@ section+section{border-top:1px solid var(--line)}
 
 /* ---------- opinie ---------- */
 
-.opinie{background:#0B0B0C}
+.opinie{background:#0B0B0E}
 .op-card{max-width:820px;margin:44px auto 0;background:var(--bg-2);border:1px solid var(--line);
   padding:clamp(28px,5vw,52px);text-align:center}
 .op-card .mark{font-family:var(--mono);font-size:2.6rem;line-height:1;color:var(--amber);display:block}
@@ -399,7 +442,7 @@ section+section{border-top:1px solid var(--line)}
 
 /* ---------- stopka ---------- */
 
-.site-foot{border-top:1px solid var(--line);background:#0A0A0B;padding:clamp(44px,6vw,64px) 0 clamp(90px,8vw,44px)}
+.site-foot{border-top:1px solid var(--line);background:#050507;padding:clamp(44px,6vw,64px) 0 clamp(90px,8vw,44px)}
 .foot-top{display:flex;gap:32px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
 .foot-links{display:flex;gap:22px;flex-wrap:wrap;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
 .foot-links a{color:var(--grey)}
@@ -414,7 +457,7 @@ section+section{border-top:1px solid var(--line)}
 /* ---------- pasek telefonu na mobile ---------- */
 
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
-  border-top:1px solid var(--line-2);background:rgba(10,10,11,.97);backdrop-filter:blur(8px);
+  border-top:1px solid var(--line-2);background:rgba(8,8,10,.97);backdrop-filter:blur(8px);
   padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));gap:10px}
 .callbar .btn{flex:1;padding:14px 8px;font-size:.7rem;letter-spacing:.06em}
 .callbar-wa{flex:0 0 54px;padding:14px 0}
@@ -451,6 +494,7 @@ section+section{border-top:1px solid var(--line)}
 @media (max-width:420px){  .gal{column-gap:10px} .gal-item{margin-bottom:10px} }
 
 @media (max-width:640px){
+  .topbar{display:none}
   .hero{min-height:auto}
   .hero-art svg{opacity:.4}
   .callbar{display:flex}
@@ -527,22 +571,24 @@ section+section{border-top:1px solid var(--line)}
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="gora">
-  <div class="hero-art" aria-hidden="true">
-    <svg viewBox="0 0 1400 900" preserveAspectRatio="xMaxYMax slice" role="presentation" focusable="false">
-      <g fill="none" stroke-linecap="round">
-        <path d="M2318.7 1601.1L875.4 619.9M179.4 619.9L875.4 619.9M2318.7 -438.9L875.4 289.1M179.4 289.1L875.4 289.1M875.4 619.9L875.4 289.1M179.4 619.9L179.4 289.1M-764.0 1308.3L301.9 619.9M-254.0 1308.3L412.2 619.9M256.0 1308.3L522.5 619.9M822.7 1308.3L645.0 619.9M-454.9 909.1L1300.7 909.1M-454.9 74.5L1300.7 74.5M-84.0 740.0L1052.0 740.0M-84.0 200.0L1052.0 200.0M93.4 659.1L933.0 659.1M93.4 260.0L933.0 260.0M2146.4 872.0L875.4 509.6M2146.4 464.0L875.4 436.1M2146.4 -12.0L875.4 350.4M2146.4 -161.6L875.4 323.4" stroke="#8A8A8A" stroke-opacity=".16" stroke-width="1"/>
-        <path d="M826.9 646.9L826.9 308.3M738.7 473.4L915.0 473.4M746.0 459.4L820.3 459.4M820.3 459.4L820.3 322.0M820.3 322.0L746.0 322.0M746.0 322.0L746.0 459.4M834.4 459.4L908.7 459.4M908.7 459.4L908.7 322.0M908.7 322.0L834.4 322.0M834.4 322.0L834.4 459.4M746.0 633.3L820.3 633.3M820.3 633.3L820.3 487.5M820.3 487.5L746.0 487.5M746.0 487.5L746.0 633.3M834.4 633.3L908.7 633.3M908.7 633.3L908.7 487.5M908.7 487.5L834.4 487.5M834.4 487.5L834.4 633.3M1283.6 1022.1L847.9 646.9M1283.6 983.9L847.9 632.9M1467.0 1022.1L915.0 646.9M1467.0 983.9L915.0 632.9M1283.6 1022.1L1283.6 983.9M847.9 646.9L847.9 632.9M1467.0 1022.1L1467.0 983.9M915.0 646.9L915.0 632.9M1283.6 1022.1L1467.0 1022.1M847.9 646.9L915.0 646.9M1283.6 983.9L1467.0 983.9M847.9 632.9L915.0 632.9M1230.2 983.9L1230.2 693.6M1067.1 841.5L1067.1 625.8M970.8 757.4L970.8 585.8M907.1 701.8L907.1 559.3M862.0 662.3L862.0 540.6M828.3 632.9L828.3 526.5M1230.2 884.6L1067.1 767.7M1230.2 792.9L1067.1 699.6M1269.0 440.5L1269.0 210.3M1086.2 437.6L1086.2 270.0M981.4 436.0L981.4 304.2M913.6 434.9L913.6 326.3M866.0 434.2L866.0 341.9M514.3 802.4L534.8 708.8M514.3 783.2L534.8 694.4M841.1 802.4L779.5 708.8M841.1 783.2L779.5 694.4M514.3 802.4L514.3 783.2M534.8 708.8L534.8 694.4M841.1 802.4L841.1 783.2M779.5 708.8L779.5 694.4M514.3 802.4L841.1 802.4M534.8 708.8L779.5 708.8M514.3 783.2L841.1 783.2M534.8 694.4L779.5 694.4M492.1 694.6L520.4 622.5M492.1 694.6L848.2 694.6M670.2 793.5L670.2 600.6" stroke="#B87423" stroke-opacity=".5" stroke-width="1.1"/>
-        <path d="M738.7 646.9L721.0 619.9M738.7 308.3L721.0 323.4M915.0 646.9L875.4 619.9M915.0 308.3L875.4 323.4M738.7 646.9L738.7 308.3M721.0 619.9L721.0 323.4M915.0 646.9L915.0 308.3M875.4 619.9L875.4 323.4M738.7 646.9L915.0 646.9M721.0 619.9L875.4 619.9M738.7 308.3L915.0 308.3M721.0 323.4L875.4 323.4M738.7 646.9L915.0 646.9M915.0 646.9L915.0 308.3M915.0 308.3L738.7 308.3M738.7 308.3L738.7 646.9M812.4 465.1L812.4 498.8M832.0 465.1L832.0 498.8M1230.2 983.9L828.3 632.9M1230.2 693.6L828.3 526.5M1467.0 983.9L915.0 632.9M1467.0 693.6L915.0 526.5M1230.2 983.9L1230.2 693.6M828.3 632.9L828.3 526.5M1467.0 983.9L1467.0 693.6M915.0 632.9L915.0 526.5M1230.2 983.9L1467.0 983.9M828.3 632.9L915.0 632.9M1230.2 693.6L1467.0 693.6M828.3 526.5L915.0 526.5M1229.1 699.7L822.7 526.5M1229.1 680.1L822.7 519.5M1487.0 699.7L915.0 526.5M1487.0 680.1L915.0 519.5M1229.1 699.7L1229.1 680.1M822.7 526.5L822.7 519.5M1487.0 699.7L1487.0 680.1M915.0 526.5L915.0 519.5M1229.1 699.7L1487.0 699.7M822.7 526.5L915.0 526.5M1229.1 680.1L1487.0 680.1M822.7 519.5L915.0 519.5M1181.5 715.7L1098.1 675.0M1039.7 646.5L990.1 622.3M953.2 604.3L920.4 588.3M895.0 575.9L871.6 564.5M853.0 555.4L835.6 546.9M1269.0 440.5L866.0 434.2M1269.0 210.3L866.0 341.9M1391.1 440.5L915.0 434.2M1391.1 210.3L915.0 341.9M1269.0 440.5L1269.0 210.3M866.0 434.2L866.0 341.9M1391.1 440.5L1391.1 210.3M915.0 434.2L915.0 341.9M1269.0 440.5L1391.1 440.5M866.0 434.2L915.0 434.2M1269.0 210.3L1391.1 210.3M866.0 341.9L915.0 341.9M1209.5 414.1L1123.4 416.3M1053.8 418.1L1004.1 419.4M961.1 420.5L928.8 421.4M899.7 422.1L877.0 422.7M492.1 793.5L520.4 694.4M492.1 600.6L520.4 554.1M848.2 793.5L779.5 694.4M848.2 600.6L779.5 554.1M492.1 793.5L492.1 600.6M520.4 694.4L520.4 554.1M848.2 793.5L848.2 600.6M779.5 694.4L779.5 554.1M492.1 793.5L848.2 793.5M520.4 694.4L779.5 694.4M492.1 600.6L848.2 600.6M520.4 554.1L779.5 554.1M468.7 605.7L507.9 551.6M468.7 593.0L507.9 542.7M876.1 605.7L789.8 551.6M876.1 593.0L789.8 542.7M468.7 605.7L468.7 593.0M507.9 551.6L507.9 542.7M876.1 605.7L876.1 593.0M789.8 551.6L789.8 542.7M468.7 605.7L876.1 605.7M507.9 551.6L789.8 551.6M468.7 593.0L876.1 593.0M507.9 542.7L789.8 542.7M531.7 652.5L615.8 652.5M724.6 652.5L808.7 652.5M531.7 744.0L615.8 744.0M724.6 744.0L808.7 744.0" stroke="#C8812B" stroke-opacity=".95" stroke-width="1.5"/>
-      </g>
-    </svg>
-  </div>
-
+  <div class="hero-glow" aria-hidden="true"></div>
+  
   <div class="wrap">
+    <figure class="hero-media">
+      <video id="baner" poster="baner.jpg" autoplay muted loop playsinline
+             preload="metadata" disablepictureinpicture
+             aria-label="K&amp;B Meble Na Wymiar — animowany baner pracowni">
+        <source src="baner.mp4" type="video/mp4">
+        <img src="baner.gif" width="836" height="471"
+             alt="K&amp;B Meble Na Wymiar — pomiar, wycena, projekt, wykonanie">
+      </video>
+    </figure>
+
     <div class="hero-inner">
       <span class="label">Warmia · Pracownia stolarska</span>
-      <h1><span class="main">Meble</span><span class="sub">na wymiar</span></h1>
-      <p class="lead">Kuchnie, szafy, garderoby i zabudowy projektowane i wykonywane
-        dokładnie pod Twoją przestrzeń — z pomiarem co do milimetra i montażem na miejscu.</p>
+      <h1>Kuchnie, szafy i zabudowy na wymiar</h1>
+      <p class="lead">Projektujemy i wykonujemy dokładnie pod Twoją przestrzeń — z pomiarem
+        co do milimetra, solidnych materiałów i z montażem na miejscu.</p>
 
       <ul class="tags">
         <li>Kuchnie</li>
@@ -906,6 +952,14 @@ section+section{border-top:1px solid var(--line)}
   "use strict";
   var $  = function(s,c){ return (c||document).querySelector(s); };
   var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+
+  /* ---- baner: przy ustawieniu „mniej ruchu" film stoi na planszy ---- */
+  var baner = $("#baner");
+  if (baner && window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    baner.autoplay = false;
+    baner.removeAttribute("autoplay");
+    try { baner.pause(); } catch(e){}
+  }
 
   /* ---- rok w stopce ---- */
   $("#rok").textContent = new Date().getFullYear();
